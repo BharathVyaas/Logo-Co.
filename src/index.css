@@ -1,0 +1,436 @@
+/* Apply base styles */
+@tailwind base;
+
+/* Apply component styles */
+@tailwind components;
+
+/* Apply utility styles */
+@tailwind utilities;
+
+/* Define custom utilities */
+@layer utilities {
+  /* Custom shadow utility */
+  .shadow-custom {
+    --shadow-opacity: 0.7;
+    box-shadow: 0 0px 8px 0px rgba(255, 255, 255, var(--shadow-opacity)),
+      0px 0px 10px 20px rgba(255, 255, 255, 0.14);
+  }
+
+  /* Text selection color */
+  .select::selection {
+    color: #ef4444;
+  }
+
+  /* Keyframes and animations for Login and SignUp */
+  /* Used in Login.js */
+  #animationMouseDown::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: var(--h);
+    background-color: rgba(233, 233, 233, 0.169);
+    animation: mouseDown 2s ease 0s 1 normal forwards;
+  }
+
+  @keyframes mouseDown {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: var(--w);
+      background-color: #ef444485;
+    }
+  }
+
+  /* Disabled state */
+  /* Used in Login.js and SignUp.js */
+  .disabled:disabled {
+    opacity: 0.8;
+  }
+
+  /* Disable text drag */
+  .grab {
+    -webkit-user-drag: none;
+  }
+
+  /* Input default behaviour */
+  .input-default {
+    outline: none;
+  }
+
+  /* Hover effect for Home component */
+  /* Used in Home component */
+  .hover {
+    position: fixed;
+    z-index: 10;
+    left: 90%;
+    padding: 0.2rem;
+    background-color: rgba(50, 0, 0, 1);
+    display: flex;
+    animation: hover 500ms ease-in-out 0s 1 normal forwards;
+  }
+
+  @keyframes hover {
+    0% {
+      transform: translateY(0vh);
+    }
+    70% {
+      transform: translateY(90vh);
+    }
+    80% {
+      transform: translateY(88vh);
+    }
+    90% {
+      transform: translateY(90vh);
+    }
+    95% {
+      transform: translateY(89vh);
+    }
+    100% {
+      transform: translateY(90vh);
+    }
+  }
+
+  /* Custom scrollbar styles */
+  /* Used in customScrollbar class */
+  .customScrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .customScrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ff000013, #ff0000df);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+
+  .customScrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ff5500, #ff0000);
+  }
+
+  .customScrollbar::-webkit-scrollbar-track {
+    background: black;
+  }
+
+  /* Reviews.js */
+  .userAvatar {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-avatar-chat {
+    margin-block: auto;
+    border-radius: 50%;
+    min-width: 35px;
+    height: 35px;
+    object-fit: cover;
+  }
+
+  .selectedReviewItem {
+    min-height: 700px;
+    position: relative;
+  }
+
+  .selectedReviewItem .reviewTitle {
+    grid-row: 1 /2;
+    order: 0;
+  }
+
+  .selectedReviewItem .reviewDate {
+    grid-row: 1 /2;
+    order: 1;
+  }
+
+  .selectedReviewItem .reviewText {
+    grid-row: 3 /7;
+    order: 4;
+    overflow-y: auto;
+  }
+
+  .selectedReviewItem .reviewReaction {
+    grid-row: 7/8;
+    order: 5;
+  }
+
+  .selectedReviewItem .reviewLike {
+    grid-row: 2/3;
+    justify-content: end;
+    padding-right: 6rem;
+    order: 3;
+  }
+
+  .selectedReviewItem .reviewReviewer {
+    grid-row: 2 /3;
+    order: 2;
+  }
+
+  .selectedReviewItem .reviewChat {
+    order: 6;
+    bottom: 0;
+    grid-column: 1/12;
+    width: 100%;
+  }
+
+  .selectedReviewItem .reviewChat .input {
+    background-color: rgba(240, 248, 255, 0.7);
+  }
+
+  .selectedReviewItem .reviewChat .input::placeholder {
+    color: black;
+  }
+
+  /*  Imported from app.js  */
+  /* || Global Styles for Preventing Image Drag and Text Selection */
+
+  .image {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* || UTILITY */
+
+  /* Background colors for images with different colors */
+
+  .imgBgRed {
+    background-color: #ef44443f;
+  }
+  .imgBgAmber {
+    background-color: #f59f0b3f;
+  }
+
+  .imgBgLime {
+    background-color: #84cc163f;
+  }
+
+  .imgBgSky {
+    background-color: #0ea5e93f;
+  }
+
+  .imgBgFuchsia {
+    background-color: #d946ef3f;
+  }
+
+  .imgBgPink {
+    background-color: #ec48993f;
+  }
+
+  /* Border colors */
+  .borderRed {
+    border-color: #ef4444;
+  }
+  .borderAmber {
+    border-color: #f59e0b;
+  }
+
+  .borderLime {
+    border-color: #84cc16;
+  }
+
+  .borderSky {
+    border-color: #0ea5e9;
+  }
+
+  .borderFuchsia {
+    border-color: #d946ef;
+  }
+
+  .borderPink {
+    border-color: #ec4899;
+  }
+
+  /* Text colors */
+
+  .textRed {
+    color: #ef4444b9;
+  }
+  .textAmber {
+    color: #f59e0bb9;
+  }
+
+  .textLime {
+    color: #84cc16b9;
+  }
+
+  .textSky {
+    color: #0ea5e9b9;
+  }
+
+  .textFuchsia {
+    color: #d946efb9;
+  }
+
+  .textPink {
+    color: #ec4899b9;
+  }
+
+  /* Background colors for Background page for madel */
+
+  .backRed {
+    background-color: #ef444400;
+  }
+  .backAmber {
+    background-color: #f59f0b00;
+  }
+
+  .backLime {
+    background-color: #84cc1600;
+  }
+
+  .backSky {
+    background-color: #0ea5e900;
+  }
+
+  .backFuchsia {
+    background-color: #d946ef00;
+  }
+
+  .backPink {
+    background-color: #ec489900;
+  }
+
+  /* Background color used for models */
+
+  .bgRed {
+    background-image: linear-gradient(to bottom, #ef4444, #000);
+  }
+  .bgAmber {
+    background-image: linear-gradient(to bottom, #f59e0b, #000);
+  }
+
+  .bgLime {
+    background-image: linear-gradient(to bottom, #84cc16, #000);
+  }
+
+  .bgSky {
+    background-image: linear-gradient(to bottom, #0ea5e9, #000);
+  }
+
+  .bgFuchsia {
+    background-image: linear-gradient(to bottom, #d946ef, #000);
+  }
+
+  .bgPink {
+    background-image: linear-gradient(to bottom, #ec4899, #000);
+  }
+
+  /* Scroll Bar colors and styles */
+
+  .customScrollbarRed::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarRed::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ef44443b, #ef44449f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarRed::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ef444470, #ef444480);
+  }
+  .customScrollbarRed::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .customScrollbarAmber::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarAmber::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f59e0b3b, #f59e0b9f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarAmber::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #f59e0b70, #f59e0b80);
+  }
+  .customScrollbarAmber::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .customScrollbarLime::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarLime::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #84cc163b, #84cc169f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarLime::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #84cc1670, #84cc1680);
+  }
+  .customScrollbarLime::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .customScrollbarSky::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarSky::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #0ea5e93b, #0ea5e99f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarSky::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0ea5e970, #0ea5e980);
+  }
+  .customScrollbarSky::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .customScrollbarFuchsia::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarFuchsia::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #d946ef3b, #d946ef9f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarFuchsia::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #d946ef70, #d946ef80);
+  }
+  .customScrollbarFuchsia::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .customScrollbarPink::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  .customScrollbarPink::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ec48993b, #ec48999f);
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .customScrollbarPink::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #ec489970, #ec489980);
+  }
+  .customScrollbarPink::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* image settings used for <ImageSlideshow /> */
+
+  .image_track > .image {
+    min-width: 40vmin;
+    height: 34vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+  }
+
+  .image_track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(0%, 0%);
+  }
+}

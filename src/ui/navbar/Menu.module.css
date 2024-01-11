@@ -1,0 +1,62 @@
+/* Animation styles for elements with class 'anime' */
+.anime::before {
+  background-color: rgb(0, 0, 0);
+  content: "";
+  width: 8rem;
+  height: 1.4rem;
+  position: absolute;
+  left: 0;
+  animation-name: anime;
+  animation-duration: 600ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+/* Arrow styles */
+.arrow::after {
+  content: "\2197"; /* Unicode arrow character */
+  color: rgba(255, 0, 0, 0.9);
+  cursor: pointer;
+  font-size: 2.6rem;
+  left: 6.8rem;
+  position: absolute;
+  top: 8.8rem;
+}
+
+/* Arrow hover animation */
+.arrow:hover::after {
+  transform: rotate(45deg) translate(20px, -0.8rem);
+  transition-duration: 500ms;
+  transition-property: transform;
+}
+
+/* Text color and font-size transition on hover for class 'colorModel' */
+.colorModel:hover {
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition-duration: 500ms;
+  transition-property: color;
+  transition-timing-function: ease-out;
+}
+
+/* Text color and font-size transition on hover for class 'colorNav' */
+.colorNav:hover {
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition-duration: 100ms;
+  transition-property: color font-size;
+  transition-timing-function: linear;
+}
+
+/* Keyframes animation definition */
+@keyframes anime {
+  0% {
+    transform: translateX(0ch);
+  }
+  100% {
+    transform: translateX(
+      var(--i)
+    ); /* Translate X based on a custom property */
+  }
+}
